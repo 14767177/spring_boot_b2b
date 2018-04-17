@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.casic.mapper.SysUserMapper" >
+  <resultMap id="BaseResultMap" type="com.casic.model.SysUser" >
+    <id column="userId" property="userid" jdbcType="NUMERIC" />
+    <result column="fullname" property="fullname" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="isExpired" property="isexpired" jdbcType="SMALLINT" />
+    <result column="isLock" property="islock" jdbcType="SMALLINT" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="SMALLINT" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="picture" property="picture" jdbcType="VARCHAR" />
+    <result column="FROMTYPE" property="fromtype" jdbcType="SMALLINT" />
+    <result column="orgId" property="orgid" jdbcType="NUMERIC" />
+    <result column="orgSn" property="orgsn" jdbcType="NUMERIC" />
+    <result column="shortAccount" property="shortaccount" jdbcType="VARCHAR" />
+    <result column="orgType" property="orgtype" jdbcType="VARCHAR" />
+    <result column="typeId" property="typeid" jdbcType="NUMERIC" />
+    <result column="typeName" property="typename" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="refCode" property="refcode" jdbcType="VARCHAR" />
+    <result column="security_level" property="securityLevel" jdbcType="INTEGER" />
+    <result column="isapply" property="isapply" jdbcType="INTEGER" />
+    <result column="openId" property="openid" jdbcType="NUMERIC" />
+    <result column="score" property="score" jdbcType="NUMERIC" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    userId, fullname, account, password, isExpired, isLock, createtime, status, email, 
+    mobile, phone, sex, picture, FROMTYPE, orgId, orgSn, shortAccount, orgType, typeId, 
+    typeName, code, refCode, security_level, isapply, openId, score
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where userId = #{userid,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_user
+    where userId = #{userid,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="com.casic.model.SysUser" >
+    insert into sys_user (userId, fullname, account, 
+      password, isExpired, isLock, 
+      createtime, status, email, 
+      mobile, phone, sex, 
+      picture, FROMTYPE, orgId, 
+      orgSn, shortAccount, orgType, 
+      typeId, typeName, code, 
+      refCode, security_level, isapply, 
+      openId, score)
+    values (#{userid,jdbcType=NUMERIC}, #{fullname,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR},
+      #{password,jdbcType=VARCHAR}, #{isexpired,jdbcType=SMALLINT}, #{islock,jdbcType=SMALLINT}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{status,jdbcType=SMALLINT}, #{email,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{picture,jdbcType=VARCHAR}, #{fromtype,jdbcType=SMALLINT}, #{orgid,jdbcType=NUMERIC},
+      #{orgsn,jdbcType=NUMERIC}, #{shortaccount,jdbcType=VARCHAR}, #{orgtype,jdbcType=VARCHAR},
+      #{typeid,jdbcType=NUMERIC}, #{typename,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR},
+      #{refcode,jdbcType=VARCHAR}, #{securityLevel,jdbcType=INTEGER}, #{isapply,jdbcType=INTEGER}, 
+      #{openid,jdbcType=NUMERIC}, #{score,jdbcType=NUMERIC})
+  </insert>
+  <insert id="insertSelective" parameterType="com.casic.model.SysUser" >
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="fullname != null" >
+        fullname,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="isexpired != null" >
+        isExpired,
+      </if>
+      <if test="islock != null" >
+        isLock,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="picture != null" >
+        picture,
+      </if>
+      <if test="fromtype != null" >
+        FROMTYPE,
+      </if>
+      <if test="orgid != null" >
+        orgId,
+      </if>
+      <if test="orgsn != null" >
+        orgSn,
+      </if>
+      <if test="shortaccount != null" >
+        shortAccount,
+      </if>
+      <if test="orgtype != null" >
+        orgType,
+      </if>
+      <if test="typeid != null" >
+        typeId,
+      </if>
+      <if test="typename != null" >
+        typeName,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="refcode != null" >
+        refCode,
+      </if>
+      <if test="securityLevel != null" >
+        security_level,
+      </if>
+      <if test="isapply != null" >
+        isapply,
+      </if>
+      <if test="openid != null" >
+        openId,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="fullname != null" >
+        #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="isexpired != null" >
+        #{isexpired,jdbcType=SMALLINT},
+      </if>
+      <if test="islock != null" >
+        #{islock,jdbcType=SMALLINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null" >
+        #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="fromtype != null" >
+        #{fromtype,jdbcType=SMALLINT},
+      </if>
+      <if test="orgid != null" >
+        #{orgid,jdbcType=NUMERIC},
+      </if>
+      <if test="orgsn != null" >
+        #{orgsn,jdbcType=NUMERIC},
+      </if>
+      <if test="shortaccount != null" >
+        #{shortaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="orgtype != null" >
+        #{orgtype,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null" >
+        #{typeid,jdbcType=NUMERIC},
+      </if>
+      <if test="typename != null" >
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="refcode != null" >
+        #{refcode,jdbcType=VARCHAR},
+      </if>
+      <if test="securityLevel != null" >
+        #{securityLevel,jdbcType=INTEGER},
+      </if>
+      <if test="isapply != null" >
+        #{isapply,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=NUMERIC},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=NUMERIC},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.casic.model.SysUser" >
+    update sys_user
+    <set >
+      <if test="fullname != null" >
+        fullname = #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="isexpired != null" >
+        isExpired = #{isexpired,jdbcType=SMALLINT},
+      </if>
+      <if test="islock != null" >
+        isLock = #{islock,jdbcType=SMALLINT},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null" >
+        picture = #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="fromtype != null" >
+        FROMTYPE = #{fromtype,jdbcType=SMALLINT},
+      </if>
+      <if test="orgid != null" >
+        orgId = #{orgid,jdbcType=NUMERIC},
+      </if>
+      <if test="orgsn != null" >
+        orgSn = #{orgsn,jdbcType=NUMERIC},
+      </if>
+      <if test="shortaccount != null" >
+        shortAccount = #{shortaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="orgtype != null" >
+        orgType = #{orgtype,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null" >
+        typeId = #{typeid,jdbcType=NUMERIC},
+      </if>
+      <if test="typename != null" >
+        typeName = #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="refcode != null" >
+        refCode = #{refcode,jdbcType=VARCHAR},
+      </if>
+      <if test="securityLevel != null" >
+        security_level = #{securityLevel,jdbcType=INTEGER},
+      </if>
+      <if test="isapply != null" >
+        isapply = #{isapply,jdbcType=INTEGER},
+      </if>
+      <if test="openid != null" >
+        openId = #{openid,jdbcType=NUMERIC},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=NUMERIC},
+      </if>
+    </set>
+    where userId = #{userid,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.casic.model.SysUser" >
+    update sys_user
+    set fullname = #{fullname,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      isExpired = #{isexpired,jdbcType=SMALLINT},
+      isLock = #{islock,jdbcType=SMALLINT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=SMALLINT},
+      email = #{email,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      picture = #{picture,jdbcType=VARCHAR},
+      FROMTYPE = #{fromtype,jdbcType=SMALLINT},
+      orgId = #{orgid,jdbcType=NUMERIC},
+      orgSn = #{orgsn,jdbcType=NUMERIC},
+      shortAccount = #{shortaccount,jdbcType=VARCHAR},
+      orgType = #{orgtype,jdbcType=VARCHAR},
+      typeId = #{typeid,jdbcType=NUMERIC},
+      typeName = #{typename,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      refCode = #{refcode,jdbcType=VARCHAR},
+      security_level = #{securityLevel,jdbcType=INTEGER},
+      isapply = #{isapply,jdbcType=INTEGER},
+      openId = #{openid,jdbcType=NUMERIC},
+      score = #{score,jdbcType=NUMERIC}
+    where userId = #{userid,jdbcType=NUMERIC}
+  </update>
+
+  <select id="findByUsername" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from sys_user
+    where account = #{account,jdbcType=VARCHAR}
+  </select>
+
+  
+  <select id="getAccountLike" resultType="com.casic.model.SysUser" parameterType="java.lang.String">
+
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM  sys_user
+    where account LIKE  CONCAT('%',#{account},'%' )
+  </select>
+
+</mapper>

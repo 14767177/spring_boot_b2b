@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.casic.mapper.SysOrgInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.casic.model.SysOrgInfo" >
+    <id column="SYS_ORG_INFO_ID" property="sysOrgInfoId" jdbcType="BIGINT" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="INDUSTRY" property="industry" jdbcType="VARCHAR" />
+    <result column="SCALE" property="scale" jdbcType="VARCHAR" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="POSTCODE" property="postcode" jdbcType="VARCHAR" />
+    <result column="CONNECTER" property="connecter" jdbcType="VARCHAR" />
+    <result column="TEL" property="tel" jdbcType="VARCHAR" />
+    <result column="FAX" property="fax" jdbcType="VARCHAR" />
+    <result column="HOMEPHONE" property="homephone" jdbcType="VARCHAR" />
+    <result column="LOGO" property="logo" jdbcType="VARCHAR" />
+    <result column="INDUSTRY2" property="industry2" jdbcType="VARCHAR" />
+    <result column="INFO" property="info" jdbcType="VARCHAR" />
+    <result column="COUNTRY" property="country" jdbcType="VARCHAR" />
+    <result column="PROVINCE" property="province" jdbcType="VARCHAR" />
+    <result column="CITY" property="city" jdbcType="VARCHAR" />
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="TYPE" property="type" jdbcType="VARCHAR" />
+    <result column="MODEL" property="model" jdbcType="VARCHAR" />
+    <result column="PRODUCT" property="product" jdbcType="VARCHAR" />
+    <result column="WEBSITE" property="website" jdbcType="VARCHAR" />
+    <result column="IS_PUBLIC" property="isPublic" jdbcType="VARCHAR" />
+    <result column="REGISTERTIME" property="registertime" jdbcType="TIMESTAMP" />
+    <result column="FLAGLOGO" property="flaglogo" jdbcType="VARCHAR" />
+    <result column="STATE" property="state" jdbcType="TINYINT" />
+    <result column="MANAGE_RANGE" property="manageRange" jdbcType="VARCHAR" />
+    <result column="REG_PROVE" property="regProve" jdbcType="VARCHAR" />
+    <result column="SELL_AREA" property="sellArea" jdbcType="VARCHAR" />
+    <result column="BRAND" property="brand" jdbcType="VARCHAR" />
+    <result column="EMPLOYEES" property="employees" jdbcType="INTEGER" />
+    <result column="AREA" property="area" jdbcType="BIGINT" />
+    <result column="CLIENTS" property="clients" jdbcType="VARCHAR" />
+    <result column="TURNOVER" property="turnover" jdbcType="VARCHAR" />
+    <result column="EXPORT_FORE" property="exportFore" jdbcType="VARCHAR" />
+    <result column="IMPORT_FORE" property="importFore" jdbcType="VARCHAR" />
+    <result column="QUALITY_CONTROL" property="qualityControl" jdbcType="VARCHAR" />
+    <result column="REG_CAPITAL" property="regCapital" jdbcType="VARCHAR" />
+    <result column="REG_ADD" property="regAdd" jdbcType="VARCHAR" />
+    <result column="INCORPORATOR" property="incorporator" jdbcType="VARCHAR" />
+    <result column="OPEN_BANK" property="openBank" jdbcType="VARCHAR" />
+    <result column="OPEN_ACCOUNT" property="openAccount" jdbcType="VARCHAR" />
+    <result column="SHOWIMAGE" property="showimage" jdbcType="VARCHAR" />
+    <result column="SELL_AREA2" property="sellArea2" jdbcType="VARCHAR" />
+    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="setid" property="setid" jdbcType="BIGINT" />
+    <result column="recommendedEnt" property="recommendedent" jdbcType="VARCHAR" />
+    <result column="QRcode" property="qrcode" jdbcType="VARCHAR" />
+    <result column="orgType" property="orgtype" jdbcType="VARCHAR" />
+    <result column="typeId" property="typeid" jdbcType="BIGINT" />
+    <result column="typeName" property="typename" jdbcType="VARCHAR" />
+    <result column="manageType" property="managetype" jdbcType="VARCHAR" />
+    <result column="specialMaterial" property="specialmaterial" jdbcType="INTEGER" />
+    <result column="classification" property="classification" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SYS_ORG_INFO_ID, EMAIL, NAME, INDUSTRY, SCALE, ADDRESS, POSTCODE, CONNECTER, TEL, 
+    FAX, HOMEPHONE, LOGO, INDUSTRY2, INFO, COUNTRY, PROVINCE, CITY, CODE, TYPE, MODEL, 
+    PRODUCT, WEBSITE, IS_PUBLIC, REGISTERTIME, FLAGLOGO, STATE, MANAGE_RANGE, REG_PROVE, 
+    SELL_AREA, BRAND, EMPLOYEES, AREA, CLIENTS, TURNOVER, EXPORT_FORE, IMPORT_FORE, QUALITY_CONTROL, 
+    REG_CAPITAL, REG_ADD, INCORPORATOR, OPEN_BANK, OPEN_ACCOUNT, SHOWIMAGE, SELL_AREA2, 
+    CREATETIME, setid, recommendedEnt, QRcode, orgType, typeId, typeName, manageType, 
+    specialMaterial, classification
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_org_info
+    where SYS_ORG_INFO_ID = #{sysOrgInfoId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_org_info
+    where SYS_ORG_INFO_ID = #{sysOrgInfoId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.casic.model.SysOrgInfo" >
+    insert into sys_org_info (SYS_ORG_INFO_ID, EMAIL, NAME, 
+      INDUSTRY, SCALE, ADDRESS, 
+      POSTCODE, CONNECTER, TEL, 
+      FAX, HOMEPHONE, LOGO, 
+      INDUSTRY2, INFO, COUNTRY, 
+      PROVINCE, CITY, CODE, 
+      TYPE, MODEL, PRODUCT, 
+      WEBSITE, IS_PUBLIC, REGISTERTIME, 
+      FLAGLOGO, STATE, MANAGE_RANGE, 
+      REG_PROVE, SELL_AREA, BRAND, 
+      EMPLOYEES, AREA, CLIENTS, 
+      TURNOVER, EXPORT_FORE, IMPORT_FORE, 
+      QUALITY_CONTROL, REG_CAPITAL, REG_ADD, 
+      INCORPORATOR, OPEN_BANK, OPEN_ACCOUNT, 
+      SHOWIMAGE, SELL_AREA2, CREATETIME, 
+      setid, recommendedEnt, QRcode, 
+      orgType, typeId, typeName, 
+      manageType, specialMaterial, classification
+      )
+    values (#{sysOrgInfoId,jdbcType=BIGINT}, #{email,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{industry,jdbcType=VARCHAR}, #{scale,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{postcode,jdbcType=VARCHAR}, #{connecter,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{fax,jdbcType=VARCHAR}, #{homephone,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, 
+      #{industry2,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{product,jdbcType=VARCHAR}, 
+      #{website,jdbcType=VARCHAR}, #{isPublic,jdbcType=VARCHAR}, #{registertime,jdbcType=TIMESTAMP}, 
+      #{flaglogo,jdbcType=VARCHAR}, #{state,jdbcType=TINYINT}, #{manageRange,jdbcType=VARCHAR}, 
+      #{regProve,jdbcType=VARCHAR}, #{sellArea,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{employees,jdbcType=INTEGER}, #{area,jdbcType=BIGINT}, #{clients,jdbcType=VARCHAR}, 
+      #{turnover,jdbcType=VARCHAR}, #{exportFore,jdbcType=VARCHAR}, #{importFore,jdbcType=VARCHAR}, 
+      #{qualityControl,jdbcType=VARCHAR}, #{regCapital,jdbcType=VARCHAR}, #{regAdd,jdbcType=VARCHAR}, 
+      #{incorporator,jdbcType=VARCHAR}, #{openBank,jdbcType=VARCHAR}, #{openAccount,jdbcType=VARCHAR}, 
+      #{showimage,jdbcType=VARCHAR}, #{sellArea2,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{setid,jdbcType=BIGINT}, #{recommendedent,jdbcType=VARCHAR}, #{qrcode,jdbcType=VARCHAR}, 
+      #{orgtype,jdbcType=VARCHAR}, #{typeid,jdbcType=BIGINT}, #{typename,jdbcType=VARCHAR}, 
+      #{managetype,jdbcType=VARCHAR}, #{specialmaterial,jdbcType=INTEGER}, #{classification,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.casic.model.SysOrgInfo" >
+    insert into sys_org_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sysOrgInfoId != null" >
+        SYS_ORG_INFO_ID,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="industry != null" >
+        INDUSTRY,
+      </if>
+      <if test="scale != null" >
+        SCALE,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="postcode != null" >
+        POSTCODE,
+      </if>
+      <if test="connecter != null" >
+        CONNECTER,
+      </if>
+      <if test="tel != null" >
+        TEL,
+      </if>
+      <if test="fax != null" >
+        FAX,
+      </if>
+      <if test="homephone != null" >
+        HOMEPHONE,
+      </if>
+      <if test="logo != null" >
+        LOGO,
+      </if>
+      <if test="industry2 != null" >
+        INDUSTRY2,
+      </if>
+      <if test="info != null" >
+        INFO,
+      </if>
+      <if test="country != null" >
+        COUNTRY,
+      </if>
+      <if test="province != null" >
+        PROVINCE,
+      </if>
+      <if test="city != null" >
+        CITY,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="model != null" >
+        MODEL,
+      </if>
+      <if test="product != null" >
+        PRODUCT,
+      </if>
+      <if test="website != null" >
+        WEBSITE,
+      </if>
+      <if test="isPublic != null" >
+        IS_PUBLIC,
+      </if>
+      <if test="registertime != null" >
+        REGISTERTIME,
+      </if>
+      <if test="flaglogo != null" >
+        FLAGLOGO,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="manageRange != null" >
+        MANAGE_RANGE,
+      </if>
+      <if test="regProve != null" >
+        REG_PROVE,
+      </if>
+      <if test="sellArea != null" >
+        SELL_AREA,
+      </if>
+      <if test="brand != null" >
+        BRAND,
+      </if>
+      <if test="employees != null" >
+        EMPLOYEES,
+      </if>
+      <if test="area != null" >
+        AREA,
+      </if>
+      <if test="clients != null" >
+        CLIENTS,
+      </if>
+      <if test="turnover != null" >
+        TURNOVER,
+      </if>
+      <if test="exportFore != null" >
+        EXPORT_FORE,
+      </if>
+      <if test="importFore != null" >
+        IMPORT_FORE,
+      </if>
+      <if test="qualityControl != null" >
+        QUALITY_CONTROL,
+      </if>
+      <if test="regCapital != null" >
+        REG_CAPITAL,
+      </if>
+      <if test="regAdd != null" >
+        REG_ADD,
+      </if>
+      <if test="incorporator != null" >
+        INCORPORATOR,
+      </if>
+      <if test="openBank != null" >
+        OPEN_BANK,
+      </if>
+      <if test="openAccount != null" >
+        OPEN_ACCOUNT,
+      </if>
+      <if test="showimage != null" >
+        SHOWIMAGE,
+      </if>
+      <if test="sellArea2 != null" >
+        SELL_AREA2,
+      </if>
+      <if test="createtime != null" >
+        CREATETIME,
+      </if>
+      <if test="setid != null" >
+        setid,
+      </if>
+      <if test="recommendedent != null" >
+        recommendedEnt,
+      </if>
+      <if test="qrcode != null" >
+        QRcode,
+      </if>
+      <if test="orgtype != null" >
+        orgType,
+      </if>
+      <if test="typeid != null" >
+        typeId,
+      </if>
+      <if test="typename != null" >
+        typeName,
+      </if>
+      <if test="managetype != null" >
+        manageType,
+      </if>
+      <if test="specialmaterial != null" >
+        specialMaterial,
+      </if>
+      <if test="classification != null" >
+        classification,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sysOrgInfoId != null" >
+        #{sysOrgInfoId,jdbcType=BIGINT},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null" >
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="scale != null" >
+        #{scale,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="connecter != null" >
+        #{connecter,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="homephone != null" >
+        #{homephone,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="industry2 != null" >
+        #{industry2,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="product != null" >
+        #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="website != null" >
+        #{website,jdbcType=VARCHAR},
+      </if>
+      <if test="isPublic != null" >
+        #{isPublic,jdbcType=VARCHAR},
+      </if>
+      <if test="registertime != null" >
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flaglogo != null" >
+        #{flaglogo,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="manageRange != null" >
+        #{manageRange,jdbcType=VARCHAR},
+      </if>
+      <if test="regProve != null" >
+        #{regProve,jdbcType=VARCHAR},
+      </if>
+      <if test="sellArea != null" >
+        #{sellArea,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="employees != null" >
+        #{employees,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=BIGINT},
+      </if>
+      <if test="clients != null" >
+        #{clients,jdbcType=VARCHAR},
+      </if>
+      <if test="turnover != null" >
+        #{turnover,jdbcType=VARCHAR},
+      </if>
+      <if test="exportFore != null" >
+        #{exportFore,jdbcType=VARCHAR},
+      </if>
+      <if test="importFore != null" >
+        #{importFore,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityControl != null" >
+        #{qualityControl,jdbcType=VARCHAR},
+      </if>
+      <if test="regCapital != null" >
+        #{regCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="regAdd != null" >
+        #{regAdd,jdbcType=VARCHAR},
+      </if>
+      <if test="incorporator != null" >
+        #{incorporator,jdbcType=VARCHAR},
+      </if>
+      <if test="openBank != null" >
+        #{openBank,jdbcType=VARCHAR},
+      </if>
+      <if test="openAccount != null" >
+        #{openAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="showimage != null" >
+        #{showimage,jdbcType=VARCHAR},
+      </if>
+      <if test="sellArea2 != null" >
+        #{sellArea2,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="setid != null" >
+        #{setid,jdbcType=BIGINT},
+      </if>
+      <if test="recommendedent != null" >
+        #{recommendedent,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcode != null" >
+        #{qrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgtype != null" >
+        #{orgtype,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null" >
+        #{typeid,jdbcType=BIGINT},
+      </if>
+      <if test="typename != null" >
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="managetype != null" >
+        #{managetype,jdbcType=VARCHAR},
+      </if>
+      <if test="specialmaterial != null" >
+        #{specialmaterial,jdbcType=INTEGER},
+      </if>
+      <if test="classification != null" >
+        #{classification,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.casic.model.SysOrgInfo" >
+    update sys_org_info
+    <set >
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null" >
+        INDUSTRY = #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="scale != null" >
+        SCALE = #{scale,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        POSTCODE = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="connecter != null" >
+        CONNECTER = #{connecter,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        TEL = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        FAX = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="homephone != null" >
+        HOMEPHONE = #{homephone,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        LOGO = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="industry2 != null" >
+        INDUSTRY2 = #{industry2,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null" >
+        INFO = #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        COUNTRY = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        PROVINCE = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        CITY = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        MODEL = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="product != null" >
+        PRODUCT = #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="website != null" >
+        WEBSITE = #{website,jdbcType=VARCHAR},
+      </if>
+      <if test="isPublic != null" >
+        IS_PUBLIC = #{isPublic,jdbcType=VARCHAR},
+      </if>
+      <if test="registertime != null" >
+        REGISTERTIME = #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flaglogo != null" >
+        FLAGLOGO = #{flaglogo,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=TINYINT},
+      </if>
+      <if test="manageRange != null" >
+        MANAGE_RANGE = #{manageRange,jdbcType=VARCHAR},
+      </if>
+      <if test="regProve != null" >
+        REG_PROVE = #{regProve,jdbcType=VARCHAR},
+      </if>
+      <if test="sellArea != null" >
+        SELL_AREA = #{sellArea,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        BRAND = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="employees != null" >
+        EMPLOYEES = #{employees,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        AREA = #{area,jdbcType=BIGINT},
+      </if>
+      <if test="clients != null" >
+        CLIENTS = #{clients,jdbcType=VARCHAR},
+      </if>
+      <if test="turnover != null" >
+        TURNOVER = #{turnover,jdbcType=VARCHAR},
+      </if>
+      <if test="exportFore != null" >
+        EXPORT_FORE = #{exportFore,jdbcType=VARCHAR},
+      </if>
+      <if test="importFore != null" >
+        IMPORT_FORE = #{importFore,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityControl != null" >
+        QUALITY_CONTROL = #{qualityControl,jdbcType=VARCHAR},
+      </if>
+      <if test="regCapital != null" >
+        REG_CAPITAL = #{regCapital,jdbcType=VARCHAR},
+      </if>
+      <if test="regAdd != null" >
+        REG_ADD = #{regAdd,jdbcType=VARCHAR},
+      </if>
+      <if test="incorporator != null" >
+        INCORPORATOR = #{incorporator,jdbcType=VARCHAR},
+      </if>
+      <if test="openBank != null" >
+        OPEN_BANK = #{openBank,jdbcType=VARCHAR},
+      </if>
+      <if test="openAccount != null" >
+        OPEN_ACCOUNT = #{openAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="showimage != null" >
+        SHOWIMAGE = #{showimage,jdbcType=VARCHAR},
+      </if>
+      <if test="sellArea2 != null" >
+        SELL_AREA2 = #{sellArea2,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="setid != null" >
+        setid = #{setid,jdbcType=BIGINT},
+      </if>
+      <if test="recommendedent != null" >
+        recommendedEnt = #{recommendedent,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcode != null" >
+        QRcode = #{qrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgtype != null" >
+        orgType = #{orgtype,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null" >
+        typeId = #{typeid,jdbcType=BIGINT},
+      </if>
+      <if test="typename != null" >
+        typeName = #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="managetype != null" >
+        manageType = #{managetype,jdbcType=VARCHAR},
+      </if>
+      <if test="specialmaterial != null" >
+        specialMaterial = #{specialmaterial,jdbcType=INTEGER},
+      </if>
+      <if test="classification != null" >
+        classification = #{classification,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SYS_ORG_INFO_ID = #{sysOrgInfoId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.casic.model.SysOrgInfo" >
+    update sys_org_info
+    set EMAIL = #{email,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      INDUSTRY = #{industry,jdbcType=VARCHAR},
+      SCALE = #{scale,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      POSTCODE = #{postcode,jdbcType=VARCHAR},
+      CONNECTER = #{connecter,jdbcType=VARCHAR},
+      TEL = #{tel,jdbcType=VARCHAR},
+      FAX = #{fax,jdbcType=VARCHAR},
+      HOMEPHONE = #{homephone,jdbcType=VARCHAR},
+      LOGO = #{logo,jdbcType=VARCHAR},
+      INDUSTRY2 = #{industry2,jdbcType=VARCHAR},
+      INFO = #{info,jdbcType=VARCHAR},
+      COUNTRY = #{country,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      CITY = #{city,jdbcType=VARCHAR},
+      CODE = #{code,jdbcType=VARCHAR},
+      TYPE = #{type,jdbcType=VARCHAR},
+      MODEL = #{model,jdbcType=VARCHAR},
+      PRODUCT = #{product,jdbcType=VARCHAR},
+      WEBSITE = #{website,jdbcType=VARCHAR},
+      IS_PUBLIC = #{isPublic,jdbcType=VARCHAR},
+      REGISTERTIME = #{registertime,jdbcType=TIMESTAMP},
+      FLAGLOGO = #{flaglogo,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=TINYINT},
+      MANAGE_RANGE = #{manageRange,jdbcType=VARCHAR},
+      REG_PROVE = #{regProve,jdbcType=VARCHAR},
+      SELL_AREA = #{sellArea,jdbcType=VARCHAR},
+      BRAND = #{brand,jdbcType=VARCHAR},
+      EMPLOYEES = #{employees,jdbcType=INTEGER},
+      AREA = #{area,jdbcType=BIGINT},
+      CLIENTS = #{clients,jdbcType=VARCHAR},
+      TURNOVER = #{turnover,jdbcType=VARCHAR},
+      EXPORT_FORE = #{exportFore,jdbcType=VARCHAR},
+      IMPORT_FORE = #{importFore,jdbcType=VARCHAR},
+      QUALITY_CONTROL = #{qualityControl,jdbcType=VARCHAR},
+      REG_CAPITAL = #{regCapital,jdbcType=VARCHAR},
+      REG_ADD = #{regAdd,jdbcType=VARCHAR},
+      INCORPORATOR = #{incorporator,jdbcType=VARCHAR},
+      OPEN_BANK = #{openBank,jdbcType=VARCHAR},
+      OPEN_ACCOUNT = #{openAccount,jdbcType=VARCHAR},
+      SHOWIMAGE = #{showimage,jdbcType=VARCHAR},
+      SELL_AREA2 = #{sellArea2,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      setid = #{setid,jdbcType=BIGINT},
+      recommendedEnt = #{recommendedent,jdbcType=VARCHAR},
+      QRcode = #{qrcode,jdbcType=VARCHAR},
+      orgType = #{orgtype,jdbcType=VARCHAR},
+      typeId = #{typeid,jdbcType=BIGINT},
+      typeName = #{typename,jdbcType=VARCHAR},
+      manageType = #{managetype,jdbcType=VARCHAR},
+      specialMaterial = #{specialmaterial,jdbcType=INTEGER},
+      classification = #{classification,jdbcType=VARCHAR}
+    where SYS_ORG_INFO_ID = #{sysOrgInfoId,jdbcType=BIGINT}
+  </update>
+</mapper>

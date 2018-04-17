@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.casic.mapper.SysOrgMapper" >
+  <resultMap id="BaseResultMap" type="com.casic.model.SysOrg" >
+    <id column="orgId" property="orgid" jdbcType="BIGINT" />
+    <result column="demId" property="demid" jdbcType="BIGINT" />
+    <result column="orgName" property="orgname" jdbcType="VARCHAR" />
+    <result column="orgDesc" property="orgdesc" jdbcType="VARCHAR" />
+    <result column="orgSupId" property="orgsupid" jdbcType="BIGINT" />
+    <result column="path" property="path" jdbcType="VARCHAR" />
+    <result column="depth" property="depth" jdbcType="INTEGER" />
+    <result column="orgType" property="orgtype" jdbcType="BIGINT" />
+    <result column="creatorId" property="creatorid" jdbcType="BIGINT" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateId" property="updateid" jdbcType="BIGINT" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="sn" property="sn" jdbcType="BIGINT" />
+    <result column="fromType" property="fromtype" jdbcType="SMALLINT" />
+    <result column="orgStatus" property="orgstatus" jdbcType="SMALLINT" />
+    <result column="isSystem" property="issystem" jdbcType="SMALLINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    orgId, demId, orgName, orgDesc, orgSupId, path, depth, orgType, creatorId, createtime, 
+    updateId, updatetime, sn, fromType, orgStatus, isSystem
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_org
+    where orgId = #{orgid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_org
+    where orgId = #{orgid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.casic.model.SysOrg" >
+    insert into sys_org (orgId, demId, orgName, 
+      orgDesc, orgSupId, path, 
+      depth, orgType, creatorId, 
+      createtime, updateId, updatetime, 
+      sn, fromType, orgStatus, 
+      isSystem)
+    values (#{orgid,jdbcType=BIGINT}, #{demid,jdbcType=BIGINT}, #{orgname,jdbcType=VARCHAR}, 
+      #{orgdesc,jdbcType=VARCHAR}, #{orgsupid,jdbcType=BIGINT}, #{path,jdbcType=VARCHAR}, 
+      #{depth,jdbcType=INTEGER}, #{orgtype,jdbcType=BIGINT}, #{creatorid,jdbcType=BIGINT}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updateid,jdbcType=BIGINT}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{sn,jdbcType=BIGINT}, #{fromtype,jdbcType=SMALLINT}, #{orgstatus,jdbcType=SMALLINT}, 
+      #{issystem,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.casic.model.SysOrg" >
+    insert into sys_org
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orgid != null" >
+        orgId,
+      </if>
+      <if test="demid != null" >
+        demId,
+      </if>
+      <if test="orgname != null" >
+        orgName,
+      </if>
+      <if test="orgdesc != null" >
+        orgDesc,
+      </if>
+      <if test="orgsupid != null" >
+        orgSupId,
+      </if>
+      <if test="path != null" >
+        path,
+      </if>
+      <if test="depth != null" >
+        depth,
+      </if>
+      <if test="orgtype != null" >
+        orgType,
+      </if>
+      <if test="creatorid != null" >
+        creatorId,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="updateid != null" >
+        updateId,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
+      </if>
+      <if test="sn != null" >
+        sn,
+      </if>
+      <if test="fromtype != null" >
+        fromType,
+      </if>
+      <if test="orgstatus != null" >
+        orgStatus,
+      </if>
+      <if test="issystem != null" >
+        isSystem,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orgid != null" >
+        #{orgid,jdbcType=BIGINT},
+      </if>
+      <if test="demid != null" >
+        #{demid,jdbcType=BIGINT},
+      </if>
+      <if test="orgname != null" >
+        #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="orgdesc != null" >
+        #{orgdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="orgsupid != null" >
+        #{orgsupid,jdbcType=BIGINT},
+      </if>
+      <if test="path != null" >
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="depth != null" >
+        #{depth,jdbcType=INTEGER},
+      </if>
+      <if test="orgtype != null" >
+        #{orgtype,jdbcType=BIGINT},
+      </if>
+      <if test="creatorid != null" >
+        #{creatorid,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateid != null" >
+        #{updateid,jdbcType=BIGINT},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sn != null" >
+        #{sn,jdbcType=BIGINT},
+      </if>
+      <if test="fromtype != null" >
+        #{fromtype,jdbcType=SMALLINT},
+      </if>
+      <if test="orgstatus != null" >
+        #{orgstatus,jdbcType=SMALLINT},
+      </if>
+      <if test="issystem != null" >
+        #{issystem,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.casic.model.SysOrg" >
+    update sys_org
+    <set >
+      <if test="demid != null" >
+        demId = #{demid,jdbcType=BIGINT},
+      </if>
+      <if test="orgname != null" >
+        orgName = #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="orgdesc != null" >
+        orgDesc = #{orgdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="orgsupid != null" >
+        orgSupId = #{orgsupid,jdbcType=BIGINT},
+      </if>
+      <if test="path != null" >
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="depth != null" >
+        depth = #{depth,jdbcType=INTEGER},
+      </if>
+      <if test="orgtype != null" >
+        orgType = #{orgtype,jdbcType=BIGINT},
+      </if>
+      <if test="creatorid != null" >
+        creatorId = #{creatorid,jdbcType=BIGINT},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateid != null" >
+        updateId = #{updateid,jdbcType=BIGINT},
+      </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sn != null" >
+        sn = #{sn,jdbcType=BIGINT},
+      </if>
+      <if test="fromtype != null" >
+        fromType = #{fromtype,jdbcType=SMALLINT},
+      </if>
+      <if test="orgstatus != null" >
+        orgStatus = #{orgstatus,jdbcType=SMALLINT},
+      </if>
+      <if test="issystem != null" >
+        isSystem = #{issystem,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where orgId = #{orgid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.casic.model.SysOrg" >
+    update sys_org
+    set demId = #{demid,jdbcType=BIGINT},
+      orgName = #{orgname,jdbcType=VARCHAR},
+      orgDesc = #{orgdesc,jdbcType=VARCHAR},
+      orgSupId = #{orgsupid,jdbcType=BIGINT},
+      path = #{path,jdbcType=VARCHAR},
+      depth = #{depth,jdbcType=INTEGER},
+      orgType = #{orgtype,jdbcType=BIGINT},
+      creatorId = #{creatorid,jdbcType=BIGINT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updateId = #{updateid,jdbcType=BIGINT},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      sn = #{sn,jdbcType=BIGINT},
+      fromType = #{fromtype,jdbcType=SMALLINT},
+      orgStatus = #{orgstatus,jdbcType=SMALLINT},
+      isSystem = #{issystem,jdbcType=SMALLINT}
+    where orgId = #{orgid,jdbcType=BIGINT}
+  </update>
+  
+  <select id="getOrgByorgid" resultType="hashmap" parameterType="long">
+    SELECT  * FROM  sys_org
+    <where>
+      AND  orgid = #{orgid}
+    </where>
+
+  </select>
+  
+</mapper>

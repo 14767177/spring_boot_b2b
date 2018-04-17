@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.casic.mapper.SysUserOrgMapper" >
+  <resultMap id="BaseResultMap" type="com.casic.model.SysUserOrg" >
+    <id column="userOrgId" property="userorgid" jdbcType="BIGINT" />
+    <result column="orgId" property="orgid" jdbcType="BIGINT" />
+    <result column="userId" property="userid" jdbcType="BIGINT" />
+    <result column="isPrimary" property="isprimary" jdbcType="SMALLINT" />
+    <result column="isCharge" property="ischarge" jdbcType="BIGINT" />
+    <result column="ISGRADEMANAGE" property="isgrademanage" jdbcType="SMALLINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    userOrgId, orgId, userId, isPrimary, isCharge, ISGRADEMANAGE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_org
+    where userOrgId = #{userorgid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_user_org
+    where userOrgId = #{userorgid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.casic.model.SysUserOrg" >
+    insert into sys_user_org (userOrgId, orgId, userId, 
+      isPrimary, isCharge, ISGRADEMANAGE
+      )
+    values (#{userorgid,jdbcType=BIGINT}, #{orgid,jdbcType=BIGINT}, #{userid,jdbcType=BIGINT}, 
+      #{isprimary,jdbcType=SMALLINT}, #{ischarge,jdbcType=BIGINT}, #{isgrademanage,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.casic.model.SysUserOrg" >
+    insert into sys_user_org
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userorgid != null" >
+        userOrgId,
+      </if>
+      <if test="orgid != null" >
+        orgId,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="isprimary != null" >
+        isPrimary,
+      </if>
+      <if test="ischarge != null" >
+        isCharge,
+      </if>
+      <if test="isgrademanage != null" >
+        ISGRADEMANAGE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userorgid != null" >
+        #{userorgid,jdbcType=BIGINT},
+      </if>
+      <if test="orgid != null" >
+        #{orgid,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="isprimary != null" >
+        #{isprimary,jdbcType=SMALLINT},
+      </if>
+      <if test="ischarge != null" >
+        #{ischarge,jdbcType=BIGINT},
+      </if>
+      <if test="isgrademanage != null" >
+        #{isgrademanage,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.casic.model.SysUserOrg" >
+    update sys_user_org
+    <set >
+      <if test="orgid != null" >
+        orgId = #{orgid,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=BIGINT},
+      </if>
+      <if test="isprimary != null" >
+        isPrimary = #{isprimary,jdbcType=SMALLINT},
+      </if>
+      <if test="ischarge != null" >
+        isCharge = #{ischarge,jdbcType=BIGINT},
+      </if>
+      <if test="isgrademanage != null" >
+        ISGRADEMANAGE = #{isgrademanage,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where userOrgId = #{userorgid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.casic.model.SysUserOrg" >
+    update sys_user_org
+    set orgId = #{orgid,jdbcType=BIGINT},
+      userId = #{userid,jdbcType=BIGINT},
+      isPrimary = #{isprimary,jdbcType=SMALLINT},
+      isCharge = #{ischarge,jdbcType=BIGINT},
+      ISGRADEMANAGE = #{isgrademanage,jdbcType=SMALLINT}
+    where userOrgId = #{userorgid,jdbcType=BIGINT}
+  </update>
+</mapper>
